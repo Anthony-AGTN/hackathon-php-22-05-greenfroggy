@@ -3,7 +3,12 @@
 {% block content %}
 	<div class="mainContainerFuture realisticBg" id="bg">
 		<div class="headerContainer">
-			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+			<div class="headerContainer2">
+				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
+				<form method="post">
+					<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+				</form>
+			</div>
 			<ul class="selectTime">
 				<li>
 					<a href="/">aujourd'hui</a>
