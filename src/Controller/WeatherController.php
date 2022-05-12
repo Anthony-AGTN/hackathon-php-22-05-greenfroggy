@@ -30,6 +30,8 @@ class WeatherController extends AbstractController
                 $weather = $weathers['forecast'][0]['weather'];
                 $weatherService = new WeatherService();
                 $weatherPic = $weatherService->convertWeatherinPicture($weather);
+                $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+                $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
 
                 return $this->twig->render('Home/index.html.twig', [
                     'location' => $location,
@@ -49,19 +51,14 @@ class WeatherController extends AbstractController
         $weatherService = new WeatherService();
         $weatherPic = $weatherService->convertWeatherinPicture($weather);
 
-        $tempMin = $weathers['forecast'][0]['tmin'];
-        $tempMax = $weathers['forecast'][0]['tmax'];
-        $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
-        $realist = $weatherService->realistTemp($tempMin, $tempMax);
-        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+        $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+        $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
 
         return $this->twig->render('Home/index.html.twig', [
             'location' => $location,
             'weathers' => $weathers,
             'weatherPic' => $weatherPic,
-            'optimist' => $optimist,
-            'realist' => $realist,
-            'pessimist' => $pessimist
+            'actualTemp' => $actualTemperature
         ]);
     }
 
