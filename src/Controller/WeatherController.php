@@ -38,10 +38,11 @@ class WeatherController extends AbstractController
         $insee = $location['cities'][0]['insee'];
 
         $weathers = $weatherManager->getWeatherByInsee($insee);
-
+        var_dump($location, $weathers);
+        die();
         return $this->twig->render('Home/index.html.twig', [
             'location' => $location,
-            'weathers' => $weathers
+            'weathers' => $weathers[0]
         ]);
     }
 }
