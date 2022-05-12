@@ -16,18 +16,15 @@
 		</div>
 
 		<div class="mainPage">
-
-			{{ dump(weather) }}
-
 			<div class="weatherCard">
 				<p class="date">{{ "now"|date("d/m/Y, H:i") }}</p>
-				<p class="nightDayTemp">Jour : 29°C - Nuit : 16°C</p>
+				<p class="nightDayTemp">Jour : {{ tmax }}°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
 					<p class="temperature">29°C</p>
 					
 					<img class="sunPic" src="{{weatherPic}}">
 				</div>
-				<p class="feltTemperature">Température ressentie : 32°C</p>
+				<p class="feltTemperature">Température ressentie : {{ tmin }}°C</p>
 			</div>
 		</div>
 	</div>
