@@ -27,16 +27,20 @@ class WeatherController extends AbstractController
                 $insee = $location['cities'][0]['insee'];
                 $weathers = $weatherManager->getWeatherByInsee($insee);
 
-                $weather = $weathers['forecast'][0]['weather'];
-                $weatherService = new WeatherService();
-                $weatherPic = $weatherService->convertWeatherinPicture($weather);
                 $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
                 $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
+                $weather = $weathers['forecast'][0]['weather'];
+
+                $weatherService = new WeatherService();
+                $weatherPic = $weatherService->convertWeatherinPicture($weather);
+                $tempFelt = $weatherService->temperatureFelt($weather, $actualTemperature);
 
                 return $this->twig->render('Home/index.html.twig', [
                     'location' => $location,
                     'weathers' => $weathers,
-                    'weatherPic' => $weatherPic
+                    'weatherPic' => $weatherPic,
+                    'actualTemp' => $actualTemperature,
+                    'tempFelt' => $tempFelt
                 ]);
             }
         }
@@ -44,7 +48,6 @@ class WeatherController extends AbstractController
         $weatherManager = new WeatherManager();
         $location = $weatherManager->getLocationByName('lyon');
         $insee = $location['cities'][0]['insee'];
-
         $weathers = $weatherManager->getWeatherByInsee($insee);
 
         $weather = $weathers['forecast'][0]['weather'];
@@ -53,12 +56,15 @@ class WeatherController extends AbstractController
 
         $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
         $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
+        $tempFelt = $weatherService->temperatureFelt($weather, $actualTemperature);
+
 
         return $this->twig->render('Home/index.html.twig', [
             'location' => $location,
             'weathers' => $weathers,
             'weatherPic' => $weatherPic,
-            'actualTemp' => $actualTemperature
+            'actualTemp' => $actualTemperature,
+            'tempFelt' => $tempFelt
         ]);
     }
 
