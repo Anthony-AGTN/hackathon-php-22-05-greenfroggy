@@ -28,14 +28,20 @@ class WeatherController extends AbstractController
                 $_SESSION['insee'] = $insee;
                 $weathers = $weatherManager->getWeatherByInsee($insee);
 
+                $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+                $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
                 $weather = $weathers['forecast'][0]['weather'];
+
                 $weatherService = new WeatherService();
                 $weatherPic = $weatherService->convertWeatherinPicture($weather);
+                $tempFelt = $weatherService->temperatureFelt($weather, $actualTemperature);
 
                 return $this->twig->render('Home/index.html.twig', [
                     'location' => $location,
                     'weathers' => $weathers,
-                    'weatherPic' => $weatherPic
+                    'weatherPic' => $weatherPic,
+                    'actualTemp' => $actualTemperature,
+                    'tempFelt' => $tempFelt
                 ]);
             }
         }
@@ -57,7 +63,6 @@ class WeatherController extends AbstractController
         $weatherManager = new WeatherManager();
         $location = $weatherManager->getLocationByName('lyon');
         $insee = $location['cities'][0]['insee'];
-
         $weathers = $weatherManager->getWeatherByInsee($insee);
 
         $weather = $weathers['forecast'][0]['weather'];
@@ -65,24 +70,23 @@ class WeatherController extends AbstractController
         $weatherPic = $weatherService->convertWeatherinPicture($weather);
         
 
-        $tempMin = $weathers['forecast'][0]['tmin'];
-        $tempMax = $weathers['forecast'][0]['tmax'];
-        $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
-        $realist = $weatherService->realistTemp($tempMin, $tempMax);
-        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+        $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+        $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
+        $tempFelt = $weatherService->temperatureFelt($weather, $actualTemperature);
+
 
         return $this->twig->render('Home/index.html.twig', [
             'location' => $location,
             'weathers' => $weathers,
             'weatherPic' => $weatherPic,
-            'optimist' => $optimist,
-            'realist' => $realist,
-            'pessimist' => $pessimist
+            'actualTemp' => $actualTemperature,
+            'tempFelt' => $tempFelt
         ]);
     }
 
     public function future(): string
     {
+        /*
         if (($_SERVER['REQUEST_METHOD']) === 'POST') {
             $errors = [];
             $city = trim($_POST['city']);
@@ -150,15 +154,15 @@ class WeatherController extends AbstractController
         $tempMax = $weathers['forecast'][0]['tmax'];
         $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
         $realist = $weatherService->realistTemp($tempMin, $tempMax);
-        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax); */
 
-        return $this->twig->render('Future/index.html.twig', [
+        return $this->twig->render('Future/index.html.twig' /*, [
             'location' => $location,
             'weathers' => $weathers,
             'weatherPic' => $weatherPic,
             'optimist' => $optimist,
             'realist' => $realist,
             'pessimist' => $pessimist
-        ]);
+        ]*/);
     }
 }

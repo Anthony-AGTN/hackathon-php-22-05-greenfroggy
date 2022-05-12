@@ -56,4 +56,27 @@ class WeatherService
         $result = [$tempMini, $tempMax];
         return $result;
     }
+
+    public function temperatureFelt(int $weather, int $actualTemperature) : string
+    {
+        if ($weather == 0) {
+            $actualTemperature = round($actualTemperature * 1.20);
+        }
+        if ($weather  > 0 && $weather < 7) {
+            $actualTemperature = round($actualTemperature * 1);
+        }
+        if (($weather >= 10 && $weather < 20) 
+        || ($weather >=40 && $weather <60)
+        || ($weather >= 210)) {
+            $actualTemperature = round($actualTemperature * 0.90);
+        }
+        if ($weather >= 20 && $weather <32
+        || ($weather >=61 && $weather <79)) {
+            $actualTemperature = round($actualTemperature * 1);
+        }
+        if ($weather >= 100 && $weather <143) {
+            $actualTemperature = round($actualTemperature * 0.80);
+        }
+        return $actualTemperature;
+    }
 }
