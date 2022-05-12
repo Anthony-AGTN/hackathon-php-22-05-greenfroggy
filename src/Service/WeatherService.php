@@ -2,9 +2,14 @@
 
 namespace App\Service;
 
-// this class transform the weather code (from API) in picture
+
 class WeatherService 
 {
+    public const OPT = 1.7;
+    public const REALIST = 2.4;
+    public const PESS = 3.7;
+
+    // this method transform the weather code (from API) in picture
     public function convertWeatherinPicture(int $weather) : string
     {
         if ($weather == 0) {
@@ -26,5 +31,29 @@ class WeatherService
             $weatherIcon = '/assets/images/Icons/storm.png';
         }
         return $weatherIcon;
+    }
+    
+    public function optimistTemp (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::OPT * 2;
+        $tempMax = $temperatureMax + SELF::OPT * 2;
+        $result = [$tempMini, $tempMax];
+        return $result;
+    }
+
+    public function realistTemp (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::REALIST * 2;
+        $tempMax = $temperatureMax + SELF::REALIST * 2;
+        $result = [$tempMini, $tempMax];
+        return $result;
+    }
+
+    public function pessimistTemp (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::PESS * 2;
+        $tempMax = $temperatureMax + SELF::PESS * 2;
+        $result = [$tempMini, $tempMax];
+        return $result;
     }
 }
