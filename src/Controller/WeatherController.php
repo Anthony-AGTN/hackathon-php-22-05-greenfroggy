@@ -81,8 +81,35 @@ class WeatherController extends AbstractController
                 $weatherManager = new WeatherManager();
             
                 $location = $weatherManager->getLocationByName($city);
-                $insee = $_SESSION['insee'];
-                $weathers = $weatherManager->getWeatherByInsee($insee);  
+                $insee = $location['cities'][0]['insee'];
+                $weathers = $weatherManager->getWeatherByInsee($insee);
+                $_SESSION['insee'] = $insee;
+
+                $weather = $weathers['forecast'][0]['weather'];
+                $weatherService = new WeatherService();
+                $weatherPic = $weatherService->convertWeatherinPicture($weather);
+        
+                $tempMin = $weathers['forecast'][0]['tmin'];
+                $tempMax = $weathers['forecast'][0]['tmax'];
+                $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
+                $realist = $weatherService->realistTemp($tempMin, $tempMax);
+                $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+
+                $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
+                $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
+                $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
+
+                return $this->twig->render('Future/index.html.twig', [
+                    'location' => $location,
+                    'weathers' => $weathers,
+                    'weatherPic' => $weatherPic,
+                    'optimist' => $optimist,
+                    'realist' => $realist,
+                    'pessimist' => $pessimist,
+                    'tempOptFelt' => $tempOptFelt,
+                    'tempRealFelt' => $tempRealFelt,
+                    'tempPessFelt' => $tempPessFelt
+                ]);
             }
         }
 
@@ -98,6 +125,10 @@ class WeatherController extends AbstractController
             $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
             $realist = $weatherService->realistTemp($tempMin, $tempMax);
             $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+            
+            $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
+            $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
+            $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
 
             return $this->twig->render('Future/index.html.twig', [
                 'location' => $_SESSION['insee'],
@@ -105,7 +136,11 @@ class WeatherController extends AbstractController
                 'weatherPic' => $weatherPic,
                 'optimist' => $optimist,
                 'realist' => $realist,
-                'pessimist' => $pessimist
+                'pessimist' => $pessimist,
+                'tempOptFelt' => $tempOptFelt,
+                'tempRealFelt' => $tempRealFelt,
+                'tempPessFelt' => $tempPessFelt
+
             ]);
         }
 
@@ -125,13 +160,21 @@ class WeatherController extends AbstractController
         $realist = $weatherService->realistTemp($tempMin, $tempMax);
         $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
 
+        $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
+        $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
+        $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
+
+
         return $this->twig->render('Future/index.html.twig', [
             'location' => $location,
             'weathers' => $weathers,
             'weatherPic' => $weatherPic,
             'optimist' => $optimist,
             'realist' => $realist,
-            'pessimist' => $pessimist
+            'pessimist' => $pessimist,
+            'tempOptFelt' => $tempOptFelt,
+            'tempRealFelt' => $tempRealFelt,
+            'tempPessFelt' => $tempPessFelt
         ]);
     }
 }

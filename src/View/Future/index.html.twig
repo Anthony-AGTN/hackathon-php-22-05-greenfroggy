@@ -3,7 +3,9 @@
 {% block content %}
 	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
-			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+			<form method="post">
+				<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+			</form>
 			<ul class="selectTime">
 				<li>
 					<a href="/">aujourd'hui</a>
@@ -41,9 +43,9 @@
 					<p class="temperature darktext">{{ pessimist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(50, 55) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{random(20, 25)}}°C</p>
 			</div>
 		</div>
 
@@ -58,9 +60,9 @@
 					<p class="temperature darktext">{{ realist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempRealFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(45, 50) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(15, 20) }}°C</p>
 			</div>
 		</div>
 
@@ -75,9 +77,9 @@
 					<p class="temperature darktext">{{ optimist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(40, 45) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(10, 15) }}°C</p>
 			</div>
 		</div>
 
