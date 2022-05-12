@@ -71,7 +71,8 @@ a {
 }
 
 /* WEATHER */
-.mainContainerPresent, .mainContainerFuture {
+.mainContainerPresent,
+.mainContainerFuture {
     background: url(/assets/images/jungle-bg.png);
     height: 100vh;
     background-position: bottom;
@@ -95,7 +96,10 @@ a {
     background-position: bottom;
 }
 
-.mainPage, .mainPagePessimistic, .mainPageRealistic, .mainPageOptimistic {
+.mainPage,
+.mainPagePessimistic,
+.mainPageRealistic,
+.mainPageOptimistic {
     display: flex;
     justify-content: center;
 }
@@ -132,7 +136,9 @@ a {
 .nightDayTemp,
 .date,
 .city,
-.feltTemperature, .tempSummer, .tempWinter {
+.feltTemperature,
+.tempSummer,
+.tempWinter {
     margin-left: 30px;
 }
 
@@ -141,7 +147,7 @@ a {
 }
 
 .scenarioSelectorContainer {
-    margin-top: 275px;
+    margin-top: 240px;
     display: flex;
     justify-content: center;
 }
@@ -152,9 +158,10 @@ a {
 
 table {
     border-spacing: 30px;
-  }
+}
 
-th, td {
+th,
+td {
     text-align: center;
 }
 
@@ -162,38 +169,35 @@ td {
     padding: 0px 15px 0px 15px;
 }
 
-#b1{
-width: 30px;
-height: 30px;
-}
-
-#b2{
+#b1 {
     width: 30px;
     height: 30px;
 }
 
-#b3{
+#b2 {
     width: 30px;
     height: 30px;
 }
 
-#b1:checked
- {
-background-color: #c33701;
-border: none;
-box-shadow: none;
- }
+#b3 {
+    width: 30px;
+    height: 30px;
+}
 
- #b2:checked
- {
-background-color: #ffb902;
-border: none;
-box-shadow: none;
- }
+#b1:checked {
+    background-color: #c33701;
+    border: none;
+    box-shadow: none;
+}
 
- #b3:checked
- {
-background-color: #2fcc71;
-border: none;
-box-shadow: none;
- }
+#b2:checked {
+    background-color: #ffb902;
+    border: none;
+    box-shadow: none;
+}
+
+#b3:checked {
+    background-color: #2fcc71;
+    border: none;
+    box-shadow: none;
+}
