@@ -7,18 +7,21 @@ use App\Model\WeatherManager;
 class WeatherController extends AbstractController
 {
     /**
-     * List items
+     * List location
      */
     public function index(): string
     {
         $weatherManager = new WeatherManager();
-        $items = $itemManager->selectAll('title');
+        $location = $weatherManager->getLocationByName('Chambery');
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
-    }
+        $insee = $location['cities'][0]['insee'];
 
-    public function future()
-    {
-        return $this->twig->render('Future/index.html.twig');
+        $weathers = $weatherManager->getWeatherByInsee($insee);
+
+        return $this->twig->render('Item/index.html.twig', [
+            'location' => $location,
+            'weathers' => $weathers
+        ]);
     }
 }
+

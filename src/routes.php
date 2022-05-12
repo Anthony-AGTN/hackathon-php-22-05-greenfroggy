@@ -9,5 +9,9 @@
 return [
     '' => ['HomeController', 'index',],
     'items' => ['ItemController', 'index',],
-    'future' => ['WeatherController', 'future'],
+    'items/edit' => ['ItemController', 'edit', ['id']],
+    'items/show' => ['ItemController', 'show', ['id']],
+    'items/add' => ['ItemController', 'add',],
+    'items/delete' => ['ItemController', 'delete',],
+    'weathers' => ['WeatherController', 'index',],
 ];
