@@ -126,8 +126,13 @@ a {
     font-weight: 300;
 }
 
+.date {
+    margin-bottom: 0;
+}
+
 .nightDayTemp,
 .date,
+.city,
 .feltTemperature, .tempSummer, .tempWinter {
     margin-left: 30px;
 }
@@ -139,7 +144,7 @@ a {
 .scenarioSelectorContainer {
     margin-top: 300px;
     display: flex;
-justify-content: center;
+    justify-content: center;
 }
 
 .scenarioSelector {
