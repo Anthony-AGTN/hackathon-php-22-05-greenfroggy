@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div class="mainContainerFuture realisticBg" id="bg">
+	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
 			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
 			<ul class="selectTime">
@@ -16,7 +16,21 @@
 
 		<div class="selector1"></div>
 
-		<div class="mainPagePessimistic d-none" id="a1">
+		<div class="mainPageFuture">
+			<div class="selectCard">
+				<form class="d-flex formYears">
+					<select class="form-select selectYears" aria-label="Default select example">
+						<option selected>Voir la météo dans :</option>
+						<option value="50">50 ans</option>
+						<option value="100">100 ans</option>
+						<option value="150">150 ans</option>
+					</select>
+					<submit type="button" class="btn btn-warning subButton">Changer</submit>
+				</form>
+			</div>
+		</div>
+
+		<div class="mainPagePessimistic" id="a1">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
@@ -33,7 +47,7 @@
 			</div>
 		</div>
 
-		<div class="mainPageRealistic" id="a2">
+		<div class="mainPageRealistic d-none" id="a2">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
@@ -80,7 +94,7 @@
 							<td>Optimiste</td>
 						</tr>
 						<tr>
-							<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();"></td>
+							<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();" checked></td>
 							<td><input class="form-check-input" type="radio" name="scenario" value="2" id="b2" onclick="show2();"></td>
 							<td><input class="form-check-input" type="radio" name="scenario" value="3" id="b3" onclick="show3();"></td>
 						</tr>
