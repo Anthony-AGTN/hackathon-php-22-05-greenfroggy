@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\WeatherManager;
+use App\Service\WeatherService;
 
 class WeatherController extends AbstractController
 {
@@ -18,9 +19,14 @@ class WeatherController extends AbstractController
 
         $weathers = $weatherManager->getWeatherByInsee($insee);
 
-        return $this->twig->render('Item/index.html.twig', [
+        $weather = $weathers['forecast'][0]['weather'];
+        $weatherService = new WeatherService();
+        $weatherPic = $weatherService->convertWeatherinPicture($weather);
+
+        return $this->twig->render('Home/index.html.twig', [
             'location' => $location,
-            'weathers' => $weathers
+            'weathers' => $weathers,
+            'weatherPic' => $weatherPic
         ]);
     }
 }
