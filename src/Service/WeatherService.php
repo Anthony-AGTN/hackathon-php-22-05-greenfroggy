@@ -33,6 +33,29 @@ class WeatherService
         return $weatherIcon;
     }
 
+    public function convertXtremWeatherinPicture(int $weather) : string
+    {
+        if ($weather == 0) {
+            $weatherIcon = '/assets/images/Icons/ultra-x-treme/flame.png';
+        }
+        if ($weather  > 0 && $weather < 7) {
+            $weatherIcon = '/assets/images/Icons/ultra-x-treme/tornado.png';
+        }
+        if (($weather >= 10 && $weather < 20) 
+        || ($weather >=40 && $weather <60)
+        || ($weather >= 210)) {
+            $weatherIcon = '/assets/images/Icons/ultra-x-treme/flood.png';
+        }
+        if ($weather >= 20 && $weather <32
+        || ($weather >=61 && $weather <79)) {
+            $weatherIcon = '/assets/images/Icons/ultra-x-treme/cricket.png';
+        }
+        if ($weather >= 100 && $weather <143) {
+            $weatherIcon = '/assets/images/Icons/ultra-x-treme/hurricane.png';
+        }
+        return $weatherIcon;
+    }
+
     public function checkData($data): array
     {
         $errors = [];

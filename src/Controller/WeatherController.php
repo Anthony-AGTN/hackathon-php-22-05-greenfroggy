@@ -87,7 +87,7 @@ class WeatherController extends AbstractController
 
                 $weather = $weathers['forecast'][0]['weather'];
                 $weatherService = new WeatherService();
-                $weatherPic = $weatherService->convertWeatherinPicture($weather);
+                $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
         
                 $tempMin = $weathers['forecast'][0]['tmin'];
                 $tempMax = $weathers['forecast'][0]['tmax'];
@@ -118,7 +118,7 @@ class WeatherController extends AbstractController
             $weathers = $weatherManager->getWeatherByInsee($_SESSION['insee']);
             $weather = $weathers['forecast'][0]['weather'];
             $weatherService = new WeatherService();
-            $weatherPic = $weatherService->convertWeatherinPicture($weather);
+            $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
 
             $tempMin = $weathers['forecast'][0]['tmin'];
             $tempMax = $weathers['forecast'][0]['tmax'];
@@ -152,7 +152,7 @@ class WeatherController extends AbstractController
 
         $weather = $weathers['forecast'][0]['weather'];
         $weatherService = new WeatherService();
-        $weatherPic = $weatherService->convertWeatherinPicture($weather);
+        $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
         
         $tempMin = $weathers['forecast'][0]['tmin'];
         $tempMax = $weathers['forecast'][0]['tmax'];
