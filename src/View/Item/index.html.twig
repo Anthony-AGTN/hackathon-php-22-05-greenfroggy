@@ -1,13 +1,17 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Items</h1>
-    <ul>
-        {% for item in items %}
-            <li><a href="/items/show?id={{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/items/add">Ajouter</a>
+    <h1>TEST</h1>
+    
+<h2>Location</h2>
+<pre>
+    {{ dump(location) }}
+</pre>
+
+
+<h2>Weather</h2>
+<pre>
+    {{ dump(weathers) }}
+</pre>
+
 {% endblock %}
