@@ -19,42 +19,51 @@
 		<div class="mainPagePessimistic d-none" id="a1">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
+				<p class="city darktext">{{ weathers.city.name }}, France</p>
+				<p class="nightDayTemp darktext">Mini :
+					{{ pessimist.0 }}°C - Maxi :
+					{{ pessimist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">59°C</p>
+					<p class="temperature darktext">{{ pessimist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
-				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
+				<p class="feltTemperature darktext">Température ressentie : °C</p>
+				<p class="tempSummer darktext">Cet été, il fera °C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
 			</div>
 		</div>
 
 		<div class="mainPageRealistic" id="a2">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
+				<p class="city darktext">{{ weathers.city.name }}, France</p>
+				<p class="nightDayTemp darktext">Mini :
+					{{ realist.0 }}°C - Maxi :
+					{{ realist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">69°C</p>
+					<p class="temperature darktext">{{ realist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
-				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
+				<p class="feltTemperature darktext">Température ressentie : °C</p>
+				<p class="tempSummer darktext">Cet été, il fera °C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
 			</div>
 		</div>
 
 		<div class="mainPageOptimistic d-none" id="a3">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
+				<p class="city darktext">{{ weathers.city.name }}, France</p>
+				<p class="nightDayTemp darktext">Mini :
+					{{ optimist.0 }}°C - Maxi :
+					{{ optimist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">79°C</p>
+					<p class="temperature darktext">{{ optimist.1 }}°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
-				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
+				<p class="feltTemperature darktext">Température ressentie : °C</p>
+				<p class="tempSummer darktext">Cet été, il fera °C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
 			</div>
 		</div>
 
