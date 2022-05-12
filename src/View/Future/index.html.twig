@@ -18,7 +18,7 @@
 
 		<div class="mainPagePessimistic d-none" id="a1">
 			<div class="weatherCard">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">59°C</p>
@@ -32,7 +32,7 @@
 
 		<div class="mainPageRealistic" id="a2">
 			<div class="weatherCard">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">69°C</p>
@@ -46,7 +46,7 @@
 
 		<div class="mainPageOptimistic d-none" id="a3">
 			<div class="weatherCard">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">79°C</p>
