@@ -10,8 +10,7 @@
     "minimum-stability": "stable",
     "require": {
         "twig/twig": "^3.1",
-        "ext-pdo": "*",
-        "symfony/http-client": "^6.0"
+        "ext-pdo": "*"
     },
     "require-dev": {
         "filp/whoops": "^2.14",
