@@ -1,0 +1,87 @@
+:root {
+    --font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+    --bs-blue: #3498db;
+    --text-color: #ffffff;
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 1px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+/* HEADER */
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bs-blue);
+    height: 15vh;
+    box-shadow: var(--box-shadow);
+    padding-top: 40px;
+}
+
+.searchBar {
+    max-width: 80vw;
+    border-radius: 10px;
+}
+
+.selectTime {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* WEATHER */
+
+.mainContainer {
+    background: url(/assets/images/jungle-bg-2.png);
+}
+
+.mainPage {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.weatherCard {
+    background-color: rgba(255, 255, 255, 0.308);
+    border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 20px;
+    width: 90vw;
+    height: 300px;
+}
+
+.tempAndSun {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sunPic {
+    width: 99px;
+    height: 99px;
+    align-items: bottom;
+}
+
+.temperature {
+    font-size: 50pt;
+    align-items: top;
+    font-weight: 300;
+}
+
+.nightDayTemp,
+.date,
+.feltTemperature {
+    margin-left: 30px;
+}
