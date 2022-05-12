@@ -17,4 +17,10 @@ class WeatherManager extends AbstractManager
         return $response->toArray();
     }
 
+    public function getWeatherByInseeAndHour (string $insee){
+        $client = HttpClient::create();
+        $response = $client->request('GET', 'https://api.meteo-concept.com/api/forecast/nextHours?token=7293fdc8b49b1840699c627230378b0b5b997958488983649eaf0ebd089fc852&insee=' . $insee);
+        return $response->toArray();
+    }
+
 }
