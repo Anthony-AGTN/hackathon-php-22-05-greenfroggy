@@ -44,12 +44,18 @@ a {
 
 /* WEATHER */
 
-.mainContainer {
-    background: url(/assets/images/jungle-bg-2.png);
+.mainContainerPresent {
+    background: url(/assets/images/jungle-bg.png);
+    height: 100vh;
 }
 
-.mainPage {
-    height: 85vh;
+.mainContainerFuture {
+    background: url(/assets/images/desert-bg.png);
+    height: 100vh;
+    background-position: bottom;
+}
+
+.mainPage, .mainPagePessimistic {
     display: flex;
     justify-content: center;
 }
@@ -84,4 +90,14 @@ a {
 .date,
 .feltTemperature {
     margin-left: 30px;
+}
+
+.scenarioSelectorContainer {
+    margin-top: 300px;
+    display: flex;
+justify-content: center;
+}
+
+.scenarioSelector {
+    width: 25vw;
 }

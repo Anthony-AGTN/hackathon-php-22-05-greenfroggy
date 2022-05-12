@@ -2,7 +2,7 @@
 
 {% block content %}
 
-	<div class="mainContainer">
+	<div class="mainContainerFuture">
 		<div class="headerContainer">
 			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
 			<ul class="selectTime">
@@ -17,14 +17,17 @@
 
 		<div class="mainPagePessimistic">
 			<div class="weatherCard">
-				<p class="date">{{ "now"|date("d/m/Y, H:i") }}</p>
+				<p class="date">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
 				<p class="nightDayTemp">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
-					<p class="temperature">29°C</p>
-					<img class="sunPic" src="/assets/images/sunicon.png">
+					<p class="temperature">59°C</p>
+					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
 				<p class="feltTemperature">Température ressentie : 32°C</p>
 			</div>
+		</div>
+		<div class="scenarioSelectorContainer">
+			<input type="range" class="form-range scenarioSelector" min="1" max="3" step="1" id="customRange3">
 		</div>
 	</div>
 {% endblock %}

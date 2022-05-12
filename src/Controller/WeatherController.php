@@ -16,4 +16,9 @@ class WeatherController extends AbstractController
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
+
+    public function future()
+    {
+        return $this->twig->render('Future/index.html.twig');
+    }
 }
