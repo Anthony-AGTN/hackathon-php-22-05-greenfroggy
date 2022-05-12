@@ -86,8 +86,13 @@ a {
     font-weight: 300;
 }
 
+.date {
+    margin-bottom: 0;
+}
+
 .nightDayTemp,
 .date,
+.city,
 .feltTemperature {
     margin-left: 30px;
 }

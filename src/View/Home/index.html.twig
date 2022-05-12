@@ -5,7 +5,7 @@
 	<div class="mainContainerPresent">
 		<div class="headerContainer">
 			<form method="post">
-				<input type="text" name="city" id="searchbar" class="form-control searchBar" value="" placeholder="🔍 Lieu">
+				<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
 			</form>
 			<ul class="selectTime">
 				<li>
@@ -18,14 +18,18 @@
 		</div>
 
 		<div class="mainPage">
+
+
 			<div class="weatherCard">
 				<p class="date">{{ "now"|date("d/m/Y, H:i") }}</p>
-				<p class="nightDayTemp">Jour : 29°C - Nuit : 16°C</p>
+				<p class="city">{{ weathers.city.name }}, France</p>
+				<p class="nightDayTemp">Jour : {{ weathers.forecast.0.tmax }}°C - Nuit : {{ weathers.forecast.0.tmin}}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature">29°C</p>
-					<img class="sunPic" src="/assets/images/Icons/sun.png">
+					<p class="temperature">{{weathers.forecast.0.tmax}}°C</p>
+					
+					<img class="sunPic" src="{{weatherPic}}">
 				</div>
-				<p class="feltTemperature">Température ressentie : 32°C</p>
+				<p class="feltTemperature">Température ressentie : {{ weathers.forecast.0.tmax }}°C</p>
 			</div>
 		</div>
 	</div>
