@@ -1,33 +1,79 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
-	<div class="mainContainerFuture">
+	<div class="mainContainerFuture realisticBg" id="bg">
 		<div class="headerContainer">
 			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
 			<ul class="selectTime">
 				<li>
-					<a href="#">aujourd'hui</a>
+					<a href="/">aujourd'hui</a>
 				</li>
 				<li>
-					<a href="#">dans 50 ans</a>
+					<a href="/future">dans 50 ans</a>
 				</li>
 			</ul>
 		</div>
 
-		<div class="mainPagePessimistic">
+		<div class="selector1"></div>
+
+		<div class="mainPagePessimistic d-none" id="a1">
 			<div class="weatherCard">
-				<p class="date">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
-				<p class="nightDayTemp">Jour : 29°C - Nuit : 16°C</p>
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
-					<p class="temperature">59°C</p>
+					<p class="temperature darktext">59°C</p>
 					<img class="sunPic" src="/assets/images/Icons/sun.png">
 				</div>
-				<p class="feltTemperature">Température ressentie : 32°C</p>
+				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
+				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
 			</div>
 		</div>
-		<div class="scenarioSelectorContainer">
-			<input type="range" class="form-range scenarioSelector" min="1" max="3" step="1" id="customRange3">
+
+		<div class="mainPageRealistic" id="a2">
+			<div class="weatherCard">
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
+				<div class="tempAndSun">
+					<p class="temperature darktext">69°C</p>
+					<img class="sunPic" src="/assets/images/Icons/sun.png">
+				</div>
+				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
+				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
+			</div>
 		</div>
+
+		<div class="mainPageOptimistic d-none" id="a3">
+			<div class="weatherCard">
+				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i") }}</p>
+				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
+				<div class="tempAndSun">
+					<p class="temperature darktext">79°C</p>
+					<img class="sunPic" src="/assets/images/Icons/sun.png">
+				</div>
+				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
+				<p class="tempSummer darktext">Cet été, il fera 65°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera -33°C</p>
+			</div>
+		</div>
+
+		<div class="scenarioSelectorContainer">
+			<form>
+				<table>
+					<tr>
+						<td>Pessimiste</td>
+						<td>Réaliste</td>
+						<td>Optimiste</td>
+					</tr>
+					<tr>
+						<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();"></td>
+						<td><input class="form-check-input" type="radio" name="scenario" value="2" id="b2" onclick="show2();"></td>
+						<td><input class="form-check-input" type="radio" name="scenario" value="3" id="b3" onclick="show3();"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+
 	</div>
 {% endblock %}
