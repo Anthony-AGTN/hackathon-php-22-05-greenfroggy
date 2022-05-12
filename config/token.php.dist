@@ -1,3 +1,4 @@
 <?php
 
 define('API_TOKEN_METEO_CONCEPT', 'token');
+define('API_TOKEN_LOCATIONIQ', 'token');

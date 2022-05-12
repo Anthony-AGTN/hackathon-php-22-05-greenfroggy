@@ -30,7 +30,20 @@
     padding-top: 47px;
 }
 
+.headerContainer2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50;
+}
+
+.headerContainer2 button {
+    border-radius: 1ch;
+    background-color: #3498db;
+}
+
 .searchBar {
+    margin-left: 15px;
     width: 75vw;
     border-radius: 10px;
     border: none;
