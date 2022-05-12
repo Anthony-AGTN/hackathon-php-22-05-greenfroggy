@@ -7,24 +7,25 @@
 			<input type="text" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
 			<ul class="selectTime">
 				<li>
-					<a href="#">aujourd'hui</a>
+					<a href="/">aujourd'hui</a>
 				</li>
 				<li>
-					<a href="#">dans 50 ans</a>
+					<a href="/future">dans 50 ans</a>
 				</li>
 			</ul>
 		</div>
 
+		<div class="selector2"></div>
+
 		<div class="mainPage">
 			<div class="weatherCard">
-				<p class="date">{{ "now"|date("d/m/Y, H:i") }}</p>
-				<p class="nightDayTemp">Jour : {{ tmax }}°C - Nuit : 16°C</p>
+				<p class="date darktext">{{ "now"|date("d/m/Y, H:i") }}</p>
+				<p class="nightDayTemp darktext">Jour : 29°C - Nuit : 16°C</p>
 				<div class="tempAndSun">
-					<p class="temperature">29°C</p>
-					
+					<p class="temperature darktext">29°C</p>					
 					<img class="sunPic" src="{{weatherPic}}">
 				</div>
-				<p class="feltTemperature">Température ressentie : {{ tmin }}°C</p>
+				<p class="feltTemperature darktext">Température ressentie : 32°C</p>
 			</div>
 		</div>
 	</div>
