@@ -1,4 +1,4 @@
-// Step 1: Get user coordinates
+/* // Step 1: Get user coordinates
 function getCoordintes() {
     const options = {
         enableHighAccuracy: true,
@@ -47,3 +47,6 @@ function getCity(coordinates) {
 }
 
 getCoordintes();
+ */
+
+navigator.geolocation.getCurrentPosition(success[, error[, [options]])
