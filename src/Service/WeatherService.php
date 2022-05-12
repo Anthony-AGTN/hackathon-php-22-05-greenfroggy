@@ -32,6 +32,18 @@ class WeatherService
         }
         return $weatherIcon;
     }
+
+    public function checkData($data): array
+    {
+        $errors = [];
+        if (empty($data)) {
+            $errors = 'Vous devez renseigner une ville';
+        }
+        if (strlen($data) > 80) {
+            $errors = 'Votre ville ne peut pas faire plue de 80 caractères';
+        }
+        return $errors;
+    }
     
     public function optimistTemp (int $temperatureMin, int $temperatureMax): array
     {
