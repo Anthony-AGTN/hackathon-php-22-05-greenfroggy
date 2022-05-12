@@ -112,7 +112,8 @@ a {
 .mainPage,
 .mainPagePessimistic,
 .mainPageRealistic,
-.mainPageOptimistic {
+.mainPageOptimistic,
+.mainPageFuture {
     display: flex;
     justify-content: center;
 }
@@ -213,4 +214,27 @@ td {
     background-color: #2fcc71;
     border: none;
     box-shadow: none;
+}
+
+.formYears {
+    width: 80%;
+}
+
+.selectCard {
+    background-color: rgba(255, 255, 255, 0.308);
+    border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 20px;
+    height: 80px;
+    width: 90vw;
+    justify-content: center;
+}
+
+.selectYears {
+    margin-left: 30px;
+    width: 200px;
+}
+
+.subButton {
+    margin-left: 7px;
 }

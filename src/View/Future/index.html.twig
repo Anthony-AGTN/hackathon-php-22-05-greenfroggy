@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div class="mainContainerFuture realisticBg" id="bg">
+	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
 			<div class="headerContainer2">
 				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
@@ -21,7 +21,21 @@
 
 		<div class="selector1"></div>
 
-		<div class="mainPagePessimistic d-none" id="a1">
+		<div class="mainPageFuture">
+			<div class="selectCard">
+				<form class="d-flex formYears">
+					<select class="form-select selectYears" aria-label="Default select example">
+						<option selected>Voir la météo dans :</option>
+						<option value="50">50 ans</option>
+						<option value="100">100 ans</option>
+						<option value="150">150 ans</option>
+					</select>
+					<submit type="button" class="btn btn-warning subButton">Changer</submit>
+				</form>
+			</div>
+		</div>
+
+		<div class="mainPagePessimistic" id="a1">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
@@ -30,15 +44,15 @@
 					{{ pessimist.1 }}°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">{{ pessimist.1 }}°C</p>
-					<img class="sunPic" src="/assets/images/Icons/sun.png">
+					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(50, 55) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{random(20, 25)}}°C</p>
 			</div>
 		</div>
 
-		<div class="mainPageRealistic" id="a2">
+		<div class="mainPageRealistic d-none" id="a2">
 			<div class="weatherCard">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
@@ -47,11 +61,11 @@
 					{{ realist.1 }}°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">{{ realist.1 }}°C</p>
-					<img class="sunPic" src="/assets/images/Icons/sun.png">
+					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempRealFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(45, 50) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(15, 20) }}°C</p>
 			</div>
 		</div>
 
@@ -64,11 +78,11 @@
 					{{ optimist.1 }}°C</p>
 				<div class="tempAndSun">
 					<p class="temperature darktext">{{ optimist.1 }}°C</p>
-					<img class="sunPic" src="/assets/images/Icons/sun.png">
+					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : °C</p>
-				<p class="tempSummer darktext">Cet été, il fera °C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera °C</p>
+				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(40, 45) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(10, 15) }}°C</p>
 			</div>
 		</div>
 
@@ -85,7 +99,7 @@
 							<td>Optimiste</td>
 						</tr>
 						<tr>
-							<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();"></td>
+							<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();" checked></td>
 							<td><input class="form-check-input" type="radio" name="scenario" value="2" id="b2" onclick="show2();"></td>
 							<td><input class="form-check-input" type="radio" name="scenario" value="3" id="b3" onclick="show3();"></td>
 						</tr>
