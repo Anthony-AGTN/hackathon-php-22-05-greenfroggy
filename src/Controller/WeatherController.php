@@ -12,7 +12,7 @@ class WeatherController extends AbstractController
     public function index(): string
     {
         $weatherManager = new WeatherManager();
-        $location = $weatherManager->getLocationByName('Chambery');
+        $location = $weatherManager->getLocationByName('Lyon');
 
         $insee = $location['cities'][0]['insee'];
 
