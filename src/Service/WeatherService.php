@@ -53,6 +53,14 @@ class WeatherService
         return $result;
     }
 
+    public function optimistTemp100 (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::OPT * 4;
+        $tempMax = $temperatureMax + SELF::OPT * 4;
+        $result100 = [$tempMini, $tempMax];
+        return $result100;
+    }
+
     public function realistTemp (int $temperatureMin, int $temperatureMax): array
     {
         $tempMini = $temperatureMin + SELF::REALIST * 2;
@@ -61,12 +69,28 @@ class WeatherService
         return $result;
     }
 
+    public function realistTemp100 (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::REALIST * 4;
+        $tempMax = $temperatureMax + SELF::REALIST * 4;
+        $result100 = [$tempMini, $tempMax];
+        return $result100;
+    }
+
     public function pessimistTemp (int $temperatureMin, int $temperatureMax): array
     {
         $tempMini = $temperatureMin + SELF::PESS * 2;
         $tempMax = $temperatureMax + SELF::PESS * 2;
         $result = [$tempMini, $tempMax];
         return $result;
+    }
+
+    public function pessimistTemp100 (int $temperatureMin, int $temperatureMax): array
+    {
+        $tempMini = $temperatureMin + SELF::PESS * 6;
+        $tempMax = $temperatureMax + SELF::PESS * 6;
+        $result100 = [$tempMini, $tempMax];
+        return $result100;
     }
 
     public function temperatureFelt(int $weather, int $actualTemperature) : string
