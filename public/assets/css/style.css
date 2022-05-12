@@ -25,13 +25,13 @@
     flex-direction: column;
     align-items: center;
     background-color: var(--bs-blue);
-    height: 20vh;
+    height: 15vh;
     box-shadow: var(--box-shadow);
-    padding-top: 65px;
+    padding-top: 47px;
 }
 
 .searchBar {
-    max-width: 75vw;
+    width: 75vw;
     border-radius: 10px;
     border: none;
 }
@@ -44,7 +44,7 @@ li {
     list-style-type: none;
     margin-left: 30px;
     margin-right: 60px;
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 a {
@@ -106,7 +106,6 @@ a {
     padding-top: 20px;
     margin-top: 20px;
     width: 90vw;
-    height: 300px;
 }
 
 .tempAndSun {
@@ -142,7 +141,7 @@ a {
 }
 
 .scenarioSelectorContainer {
-    margin-top: 300px;
+    margin-top: 275px;
     display: flex;
     justify-content: center;
 }
@@ -155,7 +154,46 @@ table {
     border-spacing: 30px;
   }
 
-td {
+th, td {
     text-align: center;
+}
+
+td {
     padding: 0px 15px 0px 15px;
 }
+
+#b1{
+width: 30px;
+height: 30px;
+}
+
+#b2{
+    width: 30px;
+    height: 30px;
+}
+
+#b3{
+    width: 30px;
+    height: 30px;
+}
+
+#b1:checked
+ {
+background-color: #c33701;
+border: none;
+box-shadow: none;
+ }
+
+ #b2:checked
+ {
+background-color: #ffb902;
+border: none;
+box-shadow: none;
+ }
+
+ #b3:checked
+ {
+background-color: #2fcc71;
+border: none;
+box-shadow: none;
+ }
