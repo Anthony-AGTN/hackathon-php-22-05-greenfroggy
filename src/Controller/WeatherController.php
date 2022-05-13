@@ -72,7 +72,7 @@ class WeatherController extends AbstractController
 
     public function future(): string
     {
-        if (($_SERVER['REQUEST_METHOD']) === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $city = trim($_POST['city']);
             $weatherService = new WeatherService();
             $errors = $weatherService->checkData($city);
@@ -91,9 +91,31 @@ class WeatherController extends AbstractController
 
                 $tempMin = $weathers['forecast'][0]['tmin'];
                 $tempMax = $weathers['forecast'][0]['tmax'];
+
                 $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
                 $realist = $weatherService->realistTemp($tempMin, $tempMax);
                 $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+
+                if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+                    if ($_GET["y"] === "50") {
+                        $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
+                        $realist = $weatherService->realistTemp($tempMin, $tempMax);
+                        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+                    }
+
+                    if ($_GET["y"] === "100") {
+                        $optimist = $weatherService->optimistTemp100($tempMin, $tempMax);
+                        $realist = $weatherService->realistTemp100($tempMin, $tempMax);
+                        $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax);
+                    }
+
+                    if ($_GET["y"] === "150") {
+                        $optimist = [99.9, 99.9, 99.9, 99.9];
+                        $realist = [99.9, 99.9, 99.9, 99.9];
+                        $pessimist = [99.9, 99.9, 99.9, 99.9];
+                        $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+                    }
+                }
 
                 $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
                 $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
@@ -122,9 +144,31 @@ class WeatherController extends AbstractController
 
             $tempMin = $weathers['forecast'][0]['tmin'];
             $tempMax = $weathers['forecast'][0]['tmax'];
+
             $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
             $realist = $weatherService->realistTemp($tempMin, $tempMax);
             $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+
+            if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+                if ($_GET["y"] === "50") {
+                    $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
+                    $realist = $weatherService->realistTemp($tempMin, $tempMax);
+                    $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+                }
+
+                if ($_GET["y"] === "100") {
+                    $optimist = $weatherService->optimistTemp100($tempMin, $tempMax);
+                    $realist = $weatherService->realistTemp100($tempMin, $tempMax);
+                    $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax);
+                }
+
+                if ($_GET["y"] === "150") {
+                    $optimist = [99.9, 99.9, 99.9, 99.9];
+                    $realist = [99.9, 99.9, 99.9, 99.9];
+                    $pessimist = [99.9, 99.9, 99.9, 99.9];
+                    $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+                }
+            }
 
             $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
             $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
@@ -156,9 +200,31 @@ class WeatherController extends AbstractController
 
         $tempMin = $weathers['forecast'][0]['tmin'];
         $tempMax = $weathers['forecast'][0]['tmax'];
+
         $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
         $realist = $weatherService->realistTemp($tempMin, $tempMax);
         $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+
+        if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+            if ($_GET["y"] === "50") {
+                $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
+                $realist = $weatherService->realistTemp($tempMin, $tempMax);
+                $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+            }
+
+            if ($_GET["y"] === "100") {
+                $optimist = $weatherService->optimistTemp100($tempMin, $tempMax);
+                $realist = $weatherService->realistTemp100($tempMin, $tempMax);
+                $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax);
+            }
+
+            if ($_GET["y"] === "150") {
+                $optimist = [99.9, 99.9, 99.9, 99.9];
+                $realist = [99.9, 99.9, 99.9, 99.9];
+                $pessimist = [99.9, 99.9, 99.9, 99.9];
+                $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+            }
+        }
 
         $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
         $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));

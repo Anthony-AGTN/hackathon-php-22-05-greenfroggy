@@ -22,7 +22,7 @@
 			<div class="selectCard">
 
 				<form class="d-flex formYears" method="get">
-					<select name="years" class="form-select selectYears">
+					<select name="y" class="form-select selectYears">
 						<option selected>Voir la météo dans :</option>
 						<option value="50">50 ans</option>
 						<option value="100">100 ans</option>
@@ -45,9 +45,12 @@
 					<p class="temperature darktext">{{ pessimist.1 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(50, 55) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{random(20, 25)}}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ pessimist.3 }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{ pessimist.4 }}°C</p>
 			</div>
 		</div>
 
@@ -62,9 +65,12 @@
 					<p class="temperature darktext">{{ realist.1 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempRealFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(45, 50) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(15, 20) }}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempRealFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ realist.3 }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{ realist.4 }}°C</p>
 			</div>
 		</div>
 
@@ -79,9 +85,12 @@
 					<p class="temperature darktext">{{ optimist.1 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(40, 45) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(10, 15) }}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ optimist.3 }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{ optimist.4 }}°C</p>
 			</div>
 		</div>
 
