@@ -46,11 +46,6 @@
     gap: 50;
 }
 
-.headerContainer3 button {
-    border-radius: 1ch;
-    background-color: #3498db;
-}
-
 .searchBar {
     margin-left: 15px;
     width: 75vw;
@@ -66,7 +61,7 @@ li {
     list-style-type: none;
     margin-left: 30px;
     margin-right: 60px;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 a {
