@@ -39,9 +39,13 @@ function getCity(coordinates) {
     function processRequest(e) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             const response = JSON.parse(xhr.responseText);
-            const city = response.address.municipality;
-            console.log(city);
-            document.getElementById("searchbar").value = city;
+            if (response.address.municipality) {
+                const city = response.address.municipality;
+                console.log(city);
+                document.getElementById("searchbar").value = city;
+            } else {
+                document.getElementById("searchbar").value = 'Lyon';
+            }
         }
     }
 }
