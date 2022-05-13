@@ -4,6 +4,10 @@
 	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
 			<div class="headerContainer2">
+				<img src="/assets/images/Icons/frog-green.svg" height="40" width="40">
+				<h1>Green Froggy</h1>
+			</div>
+			<div class="headerContainer3">
 				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
 				<form method="post">
 					<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
@@ -46,9 +50,12 @@
 					<p class="temperature darktext">{{ pessimist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempPessFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(50, 55) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{random(20, 25)}}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempPessFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ random(50, 55) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{random(20, 25)}}°C</p>
 			</div>
 		</div>
 
@@ -63,9 +70,12 @@
 					<p class="temperature darktext">{{ realist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempRealFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(45, 50) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(15, 20) }}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempRealFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ random(45, 50) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{ random(15, 20) }}°C</p>
 			</div>
 		</div>
 
@@ -80,9 +90,12 @@
 					<p class="temperature darktext">{{ optimist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
-				<p class="feltTemperature darktext">Température ressentie : {{ tempOptFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne {{ random(40, 45) }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne {{ random(10, 15) }}°C</p>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempOptFelt }}°C</p>
+				<p class="tempSummer darktext">Cet été, il fera en moyenne
+					{{ random(40, 45) }}°C</p>
+				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+					{{ random(10, 15) }}°C</p>
 			</div>
 		</div>
 

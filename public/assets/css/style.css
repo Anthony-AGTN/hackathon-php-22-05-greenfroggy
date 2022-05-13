@@ -27,17 +27,26 @@
     background-color: var(--bs-blue);
     height: 15vh;
     box-shadow: var(--box-shadow);
-    padding-top: 47px;
+    padding-top: 10px;
 }
 
 .headerContainer2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerContainer2 h1 {
+    margin-left: 10px;
+}
+
+.headerContainer3 {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 50;
 }
 
-.headerContainer2 button {
+.headerContainer3 button {
     border-radius: 1ch;
     background-color: #3498db;
 }
