@@ -49,7 +49,7 @@ class WeatherController extends AbstractController
         }
 
         $weatherManager = new WeatherManager();
-        $location = $weatherManager->getLocationByName('lyon');
+        $location = $weatherManager->getLocationByName('Annecy');
         $insee = $location['cities'][0]['insee'];
         $weathers = $weatherManager->getWeatherByInsee($insee);
 
@@ -88,16 +88,19 @@ class WeatherController extends AbstractController
                 $weather = $weathers['forecast'][0]['weather'];
                 $weatherService = new WeatherService();
                 $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
-        
+                
+                $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+                $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
+
                 $tempMin = $weathers['forecast'][0]['tmin'];
                 $tempMax = $weathers['forecast'][0]['tmax'];
-                $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
-                $realist = $weatherService->realistTemp($tempMin, $tempMax);
-                $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+                $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+                $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+                $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
 
-                $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
-                $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
-                $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
+                $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
+                $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
+                $tempPessFelt = $weatherService->xtremTemperatureFelt($weather, round($pessimist[2]));
 
                 return $this->twig->render('Future/index.html.twig', [
                     'location' => $location,
@@ -120,15 +123,18 @@ class WeatherController extends AbstractController
             $weatherService = new WeatherService();
             $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
 
+            $weatherByHour = $weatherManager->getWeatherByInseeAndHour($_SESSION['insee']);
+            $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
+
             $tempMin = $weathers['forecast'][0]['tmin'];
             $tempMax = $weathers['forecast'][0]['tmax'];
-            $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
-            $realist = $weatherService->realistTemp($tempMin, $tempMax);
-            $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
-            
-            $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
-            $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
-            $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
+            $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+            $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+            $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+
+            $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
+            $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
+            $tempPessFelt = $weatherService->xtremTemperatureFelt($weather, round($pessimist[2]));
 
             return $this->twig->render('Future/index.html.twig', [
                 'location' => $_SESSION['insee'],
@@ -145,7 +151,7 @@ class WeatherController extends AbstractController
         }
 
         $weatherManager = new WeatherManager();
-        $location = $weatherManager->getLocationByName('lyon');
+        $location = $weatherManager->getLocationByName('Annecy');
         $insee = $location['cities'][0]['insee'];
 
         $weathers = $weatherManager->getWeatherByInsee($insee);
@@ -153,16 +159,19 @@ class WeatherController extends AbstractController
         $weather = $weathers['forecast'][0]['weather'];
         $weatherService = new WeatherService();
         $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
+
+        $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
+        $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
         
         $tempMin = $weathers['forecast'][0]['tmin'];
         $tempMax = $weathers['forecast'][0]['tmax'];
-        $optimist = $weatherService->optimistTemp($tempMin, $tempMax);
-        $realist = $weatherService->realistTemp($tempMin, $tempMax);
-        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax);
+        $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+        $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
 
-        $tempOptFelt = $weatherService->temperatureFelt($weather, round($optimist[1]));
-        $tempRealFelt = $weatherService->temperatureFelt($weather, round($realist[1]));
-        $tempPessFelt = $weatherService->temperatureFelt($weather, round($pessimist[1]));
+        $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
+        $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
+        $tempPessFelt = $weatherService->xtremTemperatureFelt($weather, round($pessimist[2]));
 
 
         return $this->twig->render('Future/index.html.twig', [
