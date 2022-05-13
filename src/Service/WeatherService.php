@@ -68,11 +68,12 @@ class WeatherService
         return $errors;
     }
     
-    public function optimistTemp (int $temperatureMin, int $temperatureMax): array
+    public function optimistTemp (int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::OPT * 2;
         $tempMini = $temperatureMin + SELF::OPT * 2;
         $tempMax = $temperatureMax + SELF::OPT * 2;
-        $result = [$tempMini, $tempMax];
+        $result = [$tempMini, $tempMax, $futurActualTemp];
         return $result;
     }
 
@@ -84,11 +85,12 @@ class WeatherService
         return $result100;
     }
 
-    public function realistTemp (int $temperatureMin, int $temperatureMax): array
+    public function realistTemp (int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::REALIST * 2;
         $tempMini = $temperatureMin + SELF::REALIST * 2;
         $tempMax = $temperatureMax + SELF::REALIST * 2;
-        $result = [$tempMini, $tempMax];
+        $result = [$tempMini, $tempMax, $futurActualTemp];
         return $result;
     }
 
@@ -100,11 +102,12 @@ class WeatherService
         return $result100;
     }
 
-    public function pessimistTemp (int $temperatureMin, int $temperatureMax): array
+    public function pessimistTemp (int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::PESS * 2;
         $tempMini = $temperatureMin + SELF::PESS * 2;
         $tempMax = $temperatureMax + SELF::PESS * 2;
-        $result = [$tempMini, $tempMax];
+        $result = [$tempMini, $tempMax, $futurActualTemp];
         return $result;
     }
 
@@ -135,6 +138,29 @@ class WeatherService
         }
         if ($weather >= 100 && $weather <143) {
             $actualTemperature = round($actualTemperature * 0.80);
+        }
+        return $actualTemperature;
+    }
+
+    public function xtremTemperatureFelt(int $weather, int $actualTemperature) : string
+    {
+        if ($weather == 0) {
+            $actualTemperature = round($actualTemperature * 1.50);
+        }
+        if ($weather  > 0 && $weather < 7) {
+            $actualTemperature = round($actualTemperature * 1.3);
+        }
+        if (($weather >= 10 && $weather < 20) 
+        || ($weather >=40 && $weather <60)
+        || ($weather >= 210)) {
+            $actualTemperature = round($actualTemperature * 1.20);
+        }
+        if ($weather >= 20 && $weather <32
+        || ($weather >=61 && $weather <79)) {
+            $actualTemperature = round($actualTemperature * 1.3);
+        }
+        if ($weather >= 100 && $weather <143) {
+            $actualTemperature = round($actualTemperature * 1);
         }
         return $actualTemperature;
     }
