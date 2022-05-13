@@ -113,9 +113,9 @@ class WeatherController extends AbstractController
                     }
 
                     if ($_GET["y"] === "150") {
-                        $optimist = [99.9, 99.9, 99.9, 99.9];
-                        $realist = [99.9, 99.9, 99.9, 99.9];
-                        $pessimist = [99.9, 99.9, 99.9, 99.9];
+                        $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                        $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                        $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
                         $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
                     }
                 }
@@ -169,9 +169,9 @@ class WeatherController extends AbstractController
                 }
 
                 if ($_GET["y"] === "150") {
-                    $optimist = [99.9, 99.9, 99.9, 99.9];
-                    $realist = [99.9, 99.9, 99.9, 99.9];
-                    $pessimist = [99.9, 99.9, 99.9, 99.9];
+                    $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                    $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                    $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
                     $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
                 }
             }
@@ -228,9 +228,9 @@ class WeatherController extends AbstractController
             }
 
             if ($_GET["y"] === "150") {
-                $optimist = [99.9, 99.9, 99.9, 99.9];
-                $realist = [99.9, 99.9, 99.9, 99.9];
-                $pessimist = [99.9, 99.9, 99.9, 99.9];
+                $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
                 $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
             }
         }
