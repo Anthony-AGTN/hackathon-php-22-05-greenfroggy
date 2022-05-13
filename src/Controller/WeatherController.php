@@ -27,10 +27,10 @@ class WeatherController extends AbstractController
             }
         }
 
-        if(isset($_SESSION['insee'])) {
+        if (isset($_SESSION['insee'])) {
             $weatherManager = new WeatherManager();
             $weathers = $weatherManager->getWeatherByInsee($_SESSION['insee']);
-            
+
             $weather = $weathers['forecast'][0]['weather'];
             $weatherService = new WeatherService();
             $weatherPic = $weatherService->convertWeatherinPicture($weather);
@@ -56,7 +56,7 @@ class WeatherController extends AbstractController
         $weather = $weathers['forecast'][0]['weather'];
         $weatherService = new WeatherService();
         $weatherPic = $weatherService->convertWeatherinPicture($weather);
-        
+
         $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
         $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
         $tempFelt = $weatherService->temperatureFelt($weather, $actualTemperature);
@@ -72,14 +72,14 @@ class WeatherController extends AbstractController
 
     public function future(): string
     {
-        if (($_SERVER['REQUEST_METHOD']) === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $city = trim($_POST['city']);
             $weatherService = new WeatherService();
             $errors = $weatherService->checkData($city);
 
             if (empty($errors)) {
                 $weatherManager = new WeatherManager();
-            
+
                 $location = $weatherManager->getLocationByName($city);
                 $insee = $location['cities'][0]['insee'];
                 $weathers = $weatherManager->getWeatherByInsee($insee);
@@ -88,15 +88,37 @@ class WeatherController extends AbstractController
                 $weather = $weathers['forecast'][0]['weather'];
                 $weatherService = new WeatherService();
                 $weatherPic = $weatherService->convertXtremWeatherinPicture($weather);
-                
+
                 $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
                 $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
 
                 $tempMin = $weathers['forecast'][0]['tmin'];
                 $tempMax = $weathers['forecast'][0]['tmax'];
+
                 $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
                 $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
                 $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+
+                if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+                    if ($_GET["y"] === "50") {
+                        $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+                        $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+                        $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+                    }
+
+                    if ($_GET["y"] === "100") {
+                        $optimist = $weatherService->optimistTemp100($tempMin, $tempMax, $actualTemperature);
+                        $realist = $weatherService->realistTemp100($tempMin, $tempMax, $actualTemperature);
+                        $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax, $actualTemperature);
+                    }
+
+                    if ($_GET["y"] === "150") {
+                        $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                        $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                        $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                        $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+                    }
+                }
 
                 $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
                 $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
@@ -116,7 +138,7 @@ class WeatherController extends AbstractController
             }
         }
 
-        if(isset($_SESSION['insee'])) {
+        if (isset($_SESSION['insee'])) {
             $weatherManager = new WeatherManager();
             $weathers = $weatherManager->getWeatherByInsee($_SESSION['insee']);
             $weather = $weathers['forecast'][0]['weather'];
@@ -128,9 +150,31 @@ class WeatherController extends AbstractController
 
             $tempMin = $weathers['forecast'][0]['tmin'];
             $tempMax = $weathers['forecast'][0]['tmax'];
+
             $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
             $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
             $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+
+            if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+                if ($_GET["y"] === "50") {
+                    $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+                    $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+                    $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+                }
+
+                if ($_GET["y"] === "100") {
+                    $optimist = $weatherService->optimistTemp100($tempMin, $tempMax, $actualTemperature);
+                    $realist = $weatherService->realistTemp100($tempMin, $tempMax, $actualTemperature);
+                    $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax, $actualTemperature);
+                }
+
+                if ($_GET["y"] === "150") {
+                    $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                    $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                    $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                    $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+                }
+            }
 
             $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
             $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
@@ -162,17 +206,38 @@ class WeatherController extends AbstractController
 
         $weatherByHour = $weatherManager->getWeatherByInseeAndHour($insee);
         $actualTemperature = $weatherByHour['forecast'][0]['temp2m'];
-        
+
         $tempMin = $weathers['forecast'][0]['tmin'];
         $tempMax = $weathers['forecast'][0]['tmax'];
+
         $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
         $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
         $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
 
+        if (($_SERVER['REQUEST_METHOD'] === 'GET') && !empty($_GET)) {
+            if ($_GET["y"] === "50") {
+                $optimist = $weatherService->optimistTemp($tempMin, $tempMax, $actualTemperature);
+                $realist = $weatherService->realistTemp($tempMin, $tempMax, $actualTemperature);
+                $pessimist = $weatherService->pessimistTemp($tempMin, $tempMax, $actualTemperature);
+            }
+
+            if ($_GET["y"] === "100") {
+                $optimist = $weatherService->optimistTemp100($tempMin, $tempMax, $actualTemperature);
+                $realist = $weatherService->realistTemp100($tempMin, $tempMax, $actualTemperature);
+                $pessimist = $weatherService->pessimistTemp100($tempMin, $tempMax, $actualTemperature);
+            }
+
+            if ($_GET["y"] === "150") {
+                $optimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                $realist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                $pessimist = [99.9, 99.9, 99.9, 99.9, 99.9];
+                $weatherPic = '/assets/images/Icons/ultra-x-treme/flame.png';
+            }
+        }
+
         $tempOptFelt = $weatherService->xtremTemperatureFelt($weather, round($optimist[2]));
         $tempRealFelt = $weatherService->xtremTemperatureFelt($weather, round($realist[2]));
         $tempPessFelt = $weatherService->xtremTemperatureFelt($weather, round($pessimist[2]));
-
 
         return $this->twig->render('Future/index.html.twig', [
             'location' => $location,
