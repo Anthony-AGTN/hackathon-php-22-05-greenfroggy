@@ -3,9 +3,12 @@
 {% block content %}
 	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
-			<form method="post">
-				<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
-			</form>
+			<div class="headerContainer2">
+				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
+				<form method="post">
+					<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+				</form>
+			</div>
 			<ul class="selectTime">
 				<li>
 					<a href="/">aujourd'hui</a>
@@ -42,7 +45,7 @@
 					{{ pessimist.0 }}°C - Maxi :
 					{{ pessimist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">{{ pessimist.1 }}°C</p>
+					<p class="temperature darktext">{{ pessimist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
 				<p class="feltTemperature darktext">Température ressentie :
@@ -62,7 +65,7 @@
 					{{ realist.0 }}°C - Maxi :
 					{{ realist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">{{ realist.1 }}°C</p>
+					<p class="temperature darktext">{{ realist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
 				<p class="feltTemperature darktext">Température ressentie :
@@ -82,11 +85,12 @@
 					{{ optimist.0 }}°C - Maxi :
 					{{ optimist.1 }}°C</p>
 				<div class="tempAndSun">
-					<p class="temperature darktext">{{ optimist.1 }}°C</p>
+					<p class="temperature darktext">{{ optimist.2 }}°C</p>
 					<img class="sunPic" src="{{ weatherPic }}">
 				</div>
 				<p class="feltTemperature darktext">Température ressentie :
-					{{ tempPessFelt }}°C</p>
+					{{ tempOptFelt }}°C</p>
+
 				<p class="tempSummer darktext">Cet été, il fera en moyenne
 					{{ optimist.3 }}°C</p>
 				<p class="tempWinter darktext">Cet hiver, il fera en moyenne

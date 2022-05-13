@@ -75,63 +75,69 @@ class WeatherService
         return $errors;
     }
 
-    public function optimistTemp(int $temperatureMin, int $temperatureMax): array
+    public function optimistTemp(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::OPT * 2;
         $tempMini = $temperatureMin + SELF::OPT * 2;
         $tempMax = $temperatureMax + SELF::OPT * 2;
         $maxSummer = rand(40, 45);
         $maxWinter = rand(10, 15);
-        $result = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result;
     }
 
-    public function optimistTemp100(int $temperatureMin, int $temperatureMax): array
+    public function optimistTemp100(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::OPT * 4;
         $tempMini = $temperatureMin + SELF::OPT * 4;
         $tempMax = $temperatureMax + SELF::OPT * 4;
         $maxSummer = rand(50, 55);
         $maxWinter = rand(15, 20);
-        $result100 = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result100 = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result100;
     }
 
-    public function realistTemp(int $temperatureMin, int $temperatureMax): array
+    public function realistTemp(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::REALIST * 2;
         $tempMini = $temperatureMin + SELF::REALIST * 2;
         $tempMax = $temperatureMax + SELF::REALIST * 2;
         $maxSummer = rand(45, 50);
         $maxWinter = rand(10, 15);
-        $result = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result;
     }
 
-    public function realistTemp100(int $temperatureMin, int $temperatureMax): array
+    public function realistTemp100(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::REALIST * 4;
         $tempMini = $temperatureMin + SELF::REALIST * 4;
         $tempMax = $temperatureMax + SELF::REALIST * 4;
         $maxSummer = rand(50, 55);
         $maxWinter = rand(10, 15);
-        $result100 = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result100 = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result100;
     }
 
-    public function pessimistTemp(int $temperatureMin, int $temperatureMax): array
+    public function pessimistTemp(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::PESS * 2;
         $tempMini = $temperatureMin + SELF::PESS * 2;
         $tempMax = $temperatureMax + SELF::PESS * 2;
         $maxSummer = rand(50, 55);
         $maxWinter = rand(15, 20);
-        $result = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result;
     }
 
-    public function pessimistTemp100(int $temperatureMin, int $temperatureMax): array
+    public function pessimistTemp100(int $temperatureMin, int $temperatureMax, int $actualTemperature): array
     {
+        $futurActualTemp = $actualTemperature + SELF::PESS * 6;
         $tempMini = $temperatureMin + SELF::PESS * 6;
         $tempMax = $temperatureMax + SELF::PESS * 6;
         $maxSummer = rand(60, 65);
         $maxWinter = rand(20, 25);
-        $result100 = [$tempMini, $tempMax, $maxSummer, $maxWinter];
+        $result100 = [$tempMini, $tempMax, $futurActualTemp, $maxSummer, $maxWinter];
         return $result100;
     }
 
@@ -157,6 +163,32 @@ class WeatherService
         }
         if ($weather >= 100 && $weather < 143) {
             $actualTemperature = round($actualTemperature * 0.80);
+        }
+        return $actualTemperature;
+    }
+
+    public function xtremTemperatureFelt(int $weather, int $actualTemperature): string
+    {
+        if ($weather == 0) {
+            $actualTemperature = round($actualTemperature * 1.50);
+        }
+        if ($weather  > 0 && $weather < 7) {
+            $actualTemperature = round($actualTemperature * 1.3);
+        }
+        if (($weather >= 10 && $weather < 20)
+            || ($weather >= 40 && $weather < 60)
+            || ($weather >= 210)
+        ) {
+            $actualTemperature = round($actualTemperature * 1.20);
+        }
+        if (
+            $weather >= 20 && $weather < 32
+            || ($weather >= 61 && $weather < 79)
+        ) {
+            $actualTemperature = round($actualTemperature * 1.3);
+        }
+        if ($weather >= 100 && $weather < 143) {
+            $actualTemperature = round($actualTemperature * 1);
         }
         return $actualTemperature;
     }
