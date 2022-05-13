@@ -4,7 +4,7 @@
 	<div class="mainContainerFuture pessimisticBg" id="bg">
 		<div class="headerContainer">
 			<div class="headerContainer2">
-				<img src="/assets/images/Icons/frog-green.svg" height="40" width="40">
+				<img src="/assets/images/Icons/frog-green.svg" height="40" width="40" class="animate__animated animate__bounceIn">
 				<h1>Green Froggy</h1>
 			</div>
 			<div class="headerContainer3">
@@ -30,10 +30,9 @@
 
 				<form class="d-flex formYears" method="get">
 					<select name="y" class="form-select selectYears">
-						<option selected>Voir la météo dans :</option>
-						<option value="50">50 ans</option>
-						<option value="100">100 ans</option>
-						<option value="150">150 ans</option>
+						<option selected value="50">Dans 50 ans</option>
+						<option value="100">Dans 100 ans</option>
+						<option value="150">Dans 150 ans</option>
 					</select>
 					<input type="submit" class="btn btn-warning subButton"/>
 				</form>
@@ -42,7 +41,7 @@
 		</div>
 
 		<div class="mainPagePessimistic" id="a1">
-			<div class="weatherCard">
+			<div class="weatherCard animate__animated animate__bounceIn">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
 				<p class="nightDayTemp darktext">Mini :
@@ -62,7 +61,7 @@
 		</div>
 
 		<div class="mainPageRealistic d-none" id="a2">
-			<div class="weatherCard">
+			<div class="weatherCard animate__animated animate__bounceIn">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
 				<p class="nightDayTemp darktext">Mini :
@@ -82,7 +81,7 @@
 		</div>
 
 		<div class="mainPageOptimistic d-none" id="a3">
-			<div class="weatherCard">
+			<div class="weatherCard animate__animated animate__bounceIn">
 				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
 				<p class="city darktext">{{ weathers.city.name }}, France</p>
 				<p class="nightDayTemp darktext">Mini :
