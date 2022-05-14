@@ -92,7 +92,10 @@ a {
 .mainContainerFuture {
     background: url(/assets/images/jungle-bg.png);
     height: 100vh;
+    max-width: 420px;
     background-position: bottom;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .optimisticBg {
