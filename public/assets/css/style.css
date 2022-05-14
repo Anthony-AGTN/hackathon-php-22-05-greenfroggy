@@ -245,6 +245,9 @@ td {
     margin-left: 55px;
     width: 200px;
 }
+.selectYears option{
+    color: var(--text-color-dark);
+}
 
 .subButton {
     margin-left: 7px;
