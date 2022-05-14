@@ -3,6 +3,7 @@
 .phpcs-cache
 *.cache
 db.php
+token.php
 .idea
 .vscode
 .DS_Store

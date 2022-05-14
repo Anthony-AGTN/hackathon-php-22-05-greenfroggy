@@ -1,0 +1,244 @@
+:root {
+    --font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+    --bs-blue: #3498db;
+    --text-color: #ffffff;
+    --text-color-dark: #3c3c3c;
+    --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 1px,
+        rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.darktext {
+    color: var(--text-color-dark);
+}
+
+/* HEADER */
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bs-blue);
+    height: 15vh;
+    box-shadow: var(--box-shadow);
+    padding-top: 10px;
+}
+
+.headerContainer2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerContainer2 h1 {
+    margin-left: 10px;
+}
+
+.headerContainer3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50;
+}
+
+.searchBar {
+    margin-left: 15px;
+    width: 75vw;
+    border-radius: 10px;
+    border: none;
+}
+
+.selectTime {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    margin-left: 30px;
+    margin-right: 60px;
+    margin-top: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.selector1 {
+    background-color: white;
+    height: 3px;
+    width: 50px;
+    position: relative;
+    top: -5px;
+    left: 257px;
+}
+
+.selector2 {
+    background-color: white;
+    height: 3px;
+    width: 50px;
+    position: relative;
+    top: -5px;
+    left: 84px;
+}
+
+/* WEATHER */
+.mainContainerPresent,
+.mainContainerFuture {
+    background: url(/assets/images/jungle-bg.png);
+    height: 100vh;
+    background-position: bottom;
+}
+
+.optimisticBg {
+    background: url(/assets/images/snow-bg.png);
+    height: 100vh;
+    background-position: bottom;
+}
+
+.realisticBg {
+    background: url(/assets/images/mountains-bg.png);
+    height: 100vh;
+    background-position: bottom;
+}
+
+.pessimisticBg {
+    background: url(/assets/images/desert-bg.png);
+    height: 100vh;
+    background-position: bottom;
+}
+
+.mainPage,
+.mainPagePessimistic,
+.mainPageRealistic,
+.mainPageOptimistic,
+.mainPageFuture {
+    display: flex;
+    justify-content: center;
+}
+
+.weatherCard {
+    background-color: rgba(255, 255, 255, 0.308);
+    border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 20px;
+    width: 90vw;
+}
+
+.tempAndSun {
+    display: flex;
+    justify-content: space-around;
+}
+
+.sunPic {
+    width: 99px;
+    height: 99px;
+    align-items: bottom;
+}
+
+.temperature {
+    font-size: 50pt;
+    align-items: top;
+    font-weight: 300;
+}
+
+.date {
+    margin-bottom: 0;
+}
+
+.nightDayTemp,
+.date,
+.city,
+.feltTemperature,
+.tempSummer,
+.tempWinter {
+    margin-left: 30px;
+}
+
+.tempWinter {
+    margin-top: -20px;
+}
+
+.scenarioSelectorContainer {
+    margin-top: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.scenarioSelector {
+    width: 25vw;
+}
+
+table {
+    border-spacing: 30px;
+}
+
+th,
+td {
+    text-align: center;
+}
+
+td {
+    padding: 0px 15px 0px 15px;
+}
+
+#b1 {
+    width: 30px;
+    height: 30px;
+}
+
+#b2 {
+    width: 30px;
+    height: 30px;
+}
+
+#b3 {
+    width: 30px;
+    height: 30px;
+}
+
+#b1:checked {
+    background-color: #c33701;
+    border: none;
+    box-shadow: none;
+}
+
+#b2:checked {
+    background-color: #ffb902;
+    border: none;
+    box-shadow: none;
+}
+
+#b3:checked {
+    background-color: #2fcc71;
+    border: none;
+    box-shadow: none;
+}
+
+.formYears {
+    width: 80%;
+}
+
+.selectCard {
+    background-color: rgba(255, 255, 255, 0.308);
+    border-radius: 30px;
+    padding-top: 20px;
+    margin-top: 20px;
+    height: 80px;
+    width: 90vw;
+    justify-content: center;
+}
+
+.selectYears {
+    margin-left: 55px;
+    width: 200px;
+}
+
+.subButton {
+    margin-left: 7px;
+}

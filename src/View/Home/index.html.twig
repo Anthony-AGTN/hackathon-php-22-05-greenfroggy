@@ -1,5 +1,47 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Hello Wilder !</h1>
+
+	<div class="mainContainerPresent">
+		<div class="headerContainer">
+			<div class="headerContainer2">
+				<img src="/assets/images/Icons/frog-green.svg" height="40" width="40" class="animate__animated animate__bounceIn">
+				<h1>Green Froggy</h1>
+			</div>
+			<div class="headerContainer3">
+				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
+				<form method="post">
+					<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+				</form>
+			</div>
+			<ul class="selectTime">
+				<li>
+					<a href="/">aujourd'hui</a>
+				</li>
+				<li>
+					<a href="/future">dans le futur</a>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="selector2"></div>
+
+		<div class="mainPage">
+			<div class="weatherCard animate__animated animate__backInUp">
+				<p class="date darktext">{{ "now"|date("d/m/Y, H:i", "Europe/Paris") }}</p>
+				<p class="city darktext">{{ weathers.city.name }}, France</p>
+				<p class="nightDayTemp darktext">Mini :
+					{{ weathers.forecast.0.tmin }}°C - Maxi :
+					{{ weathers.forecast.0.tmax }}°C</p>
+				<div class="tempAndSun">
+					<p class="temperature darktext">{{ actualTemp }}°C</p>
+					<img class="sunPic" src="{{weatherPic}}">
+				</div>
+				<p class="feltTemperature darktext">Température ressentie :
+					{{ tempFelt }}°C</p>
+
+			</div>
+		</div>
+	</div>
 {% endblock %}
