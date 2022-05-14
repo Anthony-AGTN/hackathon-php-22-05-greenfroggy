@@ -14,6 +14,10 @@
     color: var(--text-color);
 }
 
+body {
+    background-color: rgb(248, 187, 165);
+}
+
 .darktext {
     color: var(--text-color-dark);
 }
@@ -48,7 +52,7 @@
 
 .searchBar {
     margin-left: 15px;
-    width: 75vw;
+    width: 20em;
     border-radius: 10px;
     border: none;
 }
@@ -92,7 +96,10 @@ a {
 .mainContainerFuture {
     background: url(/assets/images/jungle-bg.png);
     height: 100vh;
+    max-width: 420px;
     background-position: bottom;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .optimisticBg {
