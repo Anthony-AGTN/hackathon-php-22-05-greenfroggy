@@ -242,3 +242,7 @@ td {
 .subButton {
     margin-left: 7px;
 }
+
+option {
+    color: gray;
+}
