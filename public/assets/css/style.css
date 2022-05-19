@@ -37,6 +37,7 @@
 
 .headerContainer2 h1 {
     margin-left: 10px;
+    font-size: 2.2rem;
 }
 
 .headerContainer3 {
@@ -47,8 +48,8 @@
 }
 
 .searchBar {
+    width: 300px;
     margin-left: 15px;
-    width: 75vw;
     border-radius: 10px;
     border: none;
 }
@@ -127,7 +128,7 @@ a {
     border-radius: 30px;
     padding-top: 20px;
     margin-top: 20px;
-    width: 90vw;
+    width: 90%;
 }
 
 .tempAndSun {
@@ -230,7 +231,7 @@ td {
     padding-top: 20px;
     margin-top: 20px;
     height: 80px;
-    width: 90vw;
+    width: 90%;
     justify-content: center;
 }
 
@@ -241,4 +242,52 @@ td {
 
 .subButton {
     margin-left: 7px;
+}
+
+.mobileContainer {
+    height: 100vh;
+    vertical-align: middle;
+}
+
+.phonePic {
+    display: none;
+}
+
+@media screen and (min-width: 394px) {
+    .headerContainer {
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+
+    .mobileContainer {
+        background: url(/assets/images/tropical.jpg);
+        background-size: cover;
+    }
+
+    .mainContainerFuture,
+    .mainContainerPresent {
+        width: 393px;
+        height: 851px;
+        border-radius: 45px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        vertical-align: middle;
+    }
+
+    .phonePic {
+        display: block;
+        width: 420px;
+        height: 875px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.454));
+    }
 }

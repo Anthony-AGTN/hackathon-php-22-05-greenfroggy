@@ -1,127 +1,130 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div class="mainContainerFuture pessimisticBg" id="bg">
-		<div class="headerContainer">
-			<div class="headerContainer2">
-				<img src="/assets/images/Icons/frog-green.svg" height="40" width="40" class="animate__animated animate__bounceIn">
-				<h1>Green Froggy</h1>
-			</div>
-			<div class="headerContainer3">
-				<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
-				<form method="post">
-					<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
-				</form>
-			</div>
-			<ul class="selectTime">
-				<li>
-					<a href="/">aujourd'hui</a>
-				</li>
-				<li>
-					<a href="/future">dans le futur</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="selector1"></div>
-
-		<div class="mainPageFuture">
-			<div class="selectCard">
-
-				<form class="d-flex formYears" method="get">
-					<select name="y" class="form-select selectYears">
-						<option selected value="50">Dans 50 ans</option>
-						<option value="100">Dans 100 ans</option>
-						<option value="150">Dans 150 ans</option>
-					</select>
-					<input type="submit" class="btn btn-warning subButton"/>
-				</form>
-
-			</div>
-		</div>
-
-		<div class="mainPagePessimistic" id="a1">
-			<div class="weatherCard animate__animated animate__bounceIn">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="city darktext">{{ weathers.city.name }}, France</p>
-				<p class="nightDayTemp darktext">Mini :
-					{{ pessimist.0 }}°C - Maxi :
-					{{ pessimist.1 }}°C</p>
-				<div class="tempAndSun">
-					<p class="temperature darktext">{{ pessimist.2 }}°C</p>
-					<img class="sunPic" src="{{ weatherPic }}">
+	<div class="mobileContainer">
+		<img class="phonePic" src="/assets/images/PhoneShell.png">
+		<div class="mainContainerFuture pessimisticBg" id="bg">
+			<div class="headerContainer">
+				<div class="headerContainer2">
+					<img src="/assets/images/Icons/frog-green.svg" height="40" width="40" class="animate__animated animate__bounceIn">
+					<h1>Green Froggy</h1>
 				</div>
-				<p class="feltTemperature darktext">Température ressentie :
-					{{ tempPessFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne
-					{{ pessimist.3 }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
-					{{ pessimist.4 }}°C</p>
-			</div>
-		</div>
-
-		<div class="mainPageRealistic d-none" id="a2">
-			<div class="weatherCard animate__animated animate__bounceIn">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="city darktext">{{ weathers.city.name }}, France</p>
-				<p class="nightDayTemp darktext">Mini :
-					{{ realist.0 }}°C - Maxi :
-					{{ realist.1 }}°C</p>
-				<div class="tempAndSun">
-					<p class="temperature darktext">{{ realist.2 }}°C</p>
-					<img class="sunPic" src="{{ weatherPic }}">
+				<div class="headerContainer3">
+					<img id="locateButton" src="/assets/images/Icons/small-red-cutout.png" height="30">
+					<form method="post">
+						<input type="text" name="city" id="searchbar" class="form-control searchBar" placeholder="🔍 Lieu">
+					</form>
 				</div>
-				<p class="feltTemperature darktext">Température ressentie :
-					{{ tempRealFelt }}°C</p>
-				<p class="tempSummer darktext">Cet été, il fera en moyenne
-					{{ realist.3 }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
-					{{ realist.4 }}°C</p>
+				<ul class="selectTime">
+					<li>
+						<a href="/">aujourd'hui</a>
+					</li>
+					<li>
+						<a href="/future">dans le futur</a>
+					</li>
+				</ul>
 			</div>
-		</div>
 
-		<div class="mainPageOptimistic d-none" id="a3">
-			<div class="weatherCard animate__animated animate__bounceIn">
-				<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
-				<p class="city darktext">{{ weathers.city.name }}, France</p>
-				<p class="nightDayTemp darktext">Mini :
-					{{ optimist.0 }}°C - Maxi :
-					{{ optimist.1 }}°C</p>
-				<div class="tempAndSun">
-					<p class="temperature darktext">{{ optimist.2 }}°C</p>
-					<img class="sunPic" src="{{ weatherPic }}">
+			<div class="selector1"></div>
+
+			<div class="mainPageFuture">
+				<div class="selectCard">
+
+					<form class="d-flex formYears" method="get">
+						<select name="y" class="form-select selectYears">
+							<option selected value="50">Dans 50 ans</option>
+							<option value="100">Dans 100 ans</option>
+							<option value="150">Dans 150 ans</option>
+						</select>
+						<input type="submit" class="btn btn-warning subButton"/>
+					</form>
+
 				</div>
-				<p class="feltTemperature darktext">Température ressentie :
-					{{ tempOptFelt }}°C</p>
-
-				<p class="tempSummer darktext">Cet été, il fera en moyenne
-					{{ optimist.3 }}°C</p>
-				<p class="tempWinter darktext">Cet hiver, il fera en moyenne
-					{{ optimist.4 }}°C</p>
 			</div>
+
+			<div class="mainPagePessimistic" id="a1">
+				<div class="weatherCard animate__animated animate__bounceIn">
+					<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
+					<p class="city darktext">{{ weathers.city.name }}, France</p>
+					<p class="nightDayTemp darktext">Mini :
+						{{ pessimist.0 }}°C - Maxi :
+						{{ pessimist.1 }}°C</p>
+					<div class="tempAndSun">
+						<p class="temperature darktext">{{ pessimist.2 }}°C</p>
+						<img class="sunPic" src="{{ weatherPic }}">
+					</div>
+					<p class="feltTemperature darktext">Température ressentie :
+						{{ tempPessFelt }}°C</p>
+					<p class="tempSummer darktext">Cet été, il fera en moyenne
+						{{ pessimist.3 }}°C</p>
+					<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+						{{ pessimist.4 }}°C</p>
+				</div>
+			</div>
+
+			<div class="mainPageRealistic d-none" id="a2">
+				<div class="weatherCard animate__animated animate__bounceIn">
+					<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
+					<p class="city darktext">{{ weathers.city.name }}, France</p>
+					<p class="nightDayTemp darktext">Mini :
+						{{ realist.0 }}°C - Maxi :
+						{{ realist.1 }}°C</p>
+					<div class="tempAndSun">
+						<p class="temperature darktext">{{ realist.2 }}°C</p>
+						<img class="sunPic" src="{{ weatherPic }}">
+					</div>
+					<p class="feltTemperature darktext">Température ressentie :
+						{{ tempRealFelt }}°C</p>
+					<p class="tempSummer darktext">Cet été, il fera en moyenne
+						{{ realist.3 }}°C</p>
+					<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+						{{ realist.4 }}°C</p>
+				</div>
+			</div>
+
+			<div class="mainPageOptimistic d-none" id="a3">
+				<div class="weatherCard animate__animated animate__bounceIn">
+					<p class="date darktext">{{ "now"|date_modify("+50 years")|date("d/m/Y, H:i", "Europe/Paris") }}</p>
+					<p class="city darktext">{{ weathers.city.name }}, France</p>
+					<p class="nightDayTemp darktext">Mini :
+						{{ optimist.0 }}°C - Maxi :
+						{{ optimist.1 }}°C</p>
+					<div class="tempAndSun">
+						<p class="temperature darktext">{{ optimist.2 }}°C</p>
+						<img class="sunPic" src="{{ weatherPic }}">
+					</div>
+					<p class="feltTemperature darktext">Température ressentie :
+						{{ tempOptFelt }}°C</p>
+
+					<p class="tempSummer darktext">Cet été, il fera en moyenne
+						{{ optimist.3 }}°C</p>
+					<p class="tempWinter darktext">Cet hiver, il fera en moyenne
+						{{ optimist.4 }}°C</p>
+				</div>
+			</div>
+
+			<div class="scenarioSelectorContainer">
+				<form>
+					<table>
+						<th></th>
+						<th>Scénario climatique</th>
+						<th></th>
+						<tbody>
+							<tr>
+								<td>Pessimiste</td>
+								<td>Réaliste</td>
+								<td>Optimiste</td>
+							</tr>
+							<tr>
+								<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();" checked></td>
+								<td><input class="form-check-input" type="radio" name="scenario" value="2" id="b2" onclick="show2();"></td>
+								<td><input class="form-check-input" type="radio" name="scenario" value="3" id="b3" onclick="show3();"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+
 		</div>
-
-		<div class="scenarioSelectorContainer">
-			<form>
-				<table>
-					<th></th>
-					<th>Scénario climatique</th>
-					<th></th>
-					<tbody>
-						<tr>
-							<td>Pessimiste</td>
-							<td>Réaliste</td>
-							<td>Optimiste</td>
-						</tr>
-						<tr>
-							<td><input class="form-check-input" type="radio" name="scenario" value="1" id="b1" onclick="show1();" checked></td>
-							<td><input class="form-check-input" type="radio" name="scenario" value="2" id="b2" onclick="show2();"></td>
-							<td><input class="form-check-input" type="radio" name="scenario" value="3" id="b3" onclick="show3();"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</form>
-
 	</div>
 {% endblock %}
