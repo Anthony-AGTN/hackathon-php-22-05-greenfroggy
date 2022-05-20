@@ -37,6 +37,7 @@
 
 .headerContainer2 h1 {
     margin-left: 10px;
+    font-size: 2.2rem;
 }
 
 .headerContainer3 {
@@ -47,8 +48,8 @@
 }
 
 .searchBar {
+    width: 300px;
     margin-left: 15px;
-    width: 75vw;
     border-radius: 10px;
     border: none;
 }
@@ -127,7 +128,7 @@ a {
     border-radius: 30px;
     padding-top: 20px;
     margin-top: 20px;
-    width: 90vw;
+    width: 90%;
 }
 
 .tempAndSun {
@@ -230,7 +231,7 @@ td {
     padding-top: 20px;
     margin-top: 20px;
     height: 80px;
-    width: 90vw;
+    width: 90%;
     justify-content: center;
 }
 
@@ -241,4 +242,111 @@ td {
 
 .subButton {
     margin-left: 7px;
+}
+
+.mobileContainer {
+    height: 100vh;
+    vertical-align: middle;
+}
+
+.phonePic {
+    display: none;
+}
+
+.sideTextL {
+    display: none;
+}
+
+.sideTextR {
+    display: none;
+}
+
+@media screen and (min-width: 435px) {
+    .headerContainer {
+        border-top-left-radius: 39px;
+        border-top-right-radius: 39px;
+    }
+
+    .mobileContainer {
+        background: url(/assets/images/tropical.jpg);
+        background-size: cover;
+    }
+
+    .mainContainerFuture,
+    .mainContainerPresent {
+        width: 393px;
+        height: 851px;
+        border-radius: 39px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        vertical-align: middle;
+    }
+
+    .phonePic {
+        display: block;
+        width: 433px;
+        height: 890px;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        filter: drop-shadow(0px 0px 30px rgba(2, 2, 2, 0.454));
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sideTextContainer {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .sideTextL,
+    .sideTextR {
+        display: block;
+        position: absolute;
+        width: 25vw;
+        background-color: rgba(0, 0, 0, 0.317);
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .sideTextL {
+        left: 20px;
+    }
+
+    .sideTextR {
+        right: 20px;
+    }
+
+    .sideTextL p,
+    .sideTextR p {
+        text-align: justify;
+    }
+
+    .linkedinpic {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    li {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .sideTextL {
+        left: 50px;
+    }
+
+    .sideTextR {
+        right: 50px;
+    }
 }
