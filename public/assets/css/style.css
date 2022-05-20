@@ -300,34 +300,33 @@ td {
     }
 }
 
-@media screen and (min-width: 1150px) {
-    .sideTextL {
+@media screen and (min-width: 992px) {
+    .sideTextContainer {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .sideTextL, .sideTextR {
         display: block;
         position: absolute;
-        left: 50px;
-        top: 28vh;
         width: 25vw;
         background-color: rgba(0, 0, 0, 0.317);
         padding: 15px;
         border-radius: 20px;
     }
 
-    .sideTextL p {
-    text-align: justify;}
+    .sideTextL {
+        left: 20px;
+    }
 
     .sideTextR {
-        display: block;
-        position: absolute;
-        right: 50px;
-        top: 22vh;
-        width: 25vw;
-        background-color: rgba(0, 0, 0, 0.317);
-        padding: 15px;
-        border-radius: 20px;
+        right: 20px;
     }
 
-    .sideTextR p {
-        text-align: justify;}
+    .sideTextL p, .sideTextR p {
+        text-align: justify;
+    }
 
     .linkedinpic {
         width: 20px;
@@ -336,5 +335,20 @@ td {
     }
 
     li {
-    margin-left: 0px; }
+        margin-left: 0px;
+    }
+}
+
+
+@media screen and (min-width: 1250px) {
+
+
+    .sideTextL {
+        left: 50px;
+    }
+
+    .sideTextR {
+        right: 50px;
+    }
+
 }
