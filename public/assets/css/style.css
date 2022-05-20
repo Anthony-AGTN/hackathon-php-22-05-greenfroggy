@@ -307,7 +307,8 @@ td {
         height: 100vh;
     }
 
-    .sideTextL, .sideTextR {
+    .sideTextL,
+    .sideTextR {
         display: block;
         position: absolute;
         width: 25vw;
@@ -324,7 +325,8 @@ td {
         right: 20px;
     }
 
-    .sideTextL p, .sideTextR p {
+    .sideTextL p,
+    .sideTextR p {
         text-align: justify;
     }
 
@@ -339,10 +341,7 @@ td {
     }
 }
 
-
 @media screen and (min-width: 1250px) {
-
-
     .sideTextL {
         left: 50px;
     }
@@ -350,5 +349,4 @@ td {
     .sideTextR {
         right: 50px;
     }
-
 }
