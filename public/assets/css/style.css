@@ -265,6 +265,10 @@ td {
     display: none;
 }
 
+option {
+    color: gray;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (min-width: 435px) {
@@ -390,3 +394,6 @@ td {
         right: 70px;
     }
 }
+
+
+
